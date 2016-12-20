@@ -163,6 +163,32 @@
         self.whereClause = self.locationColumn + " not equal to ''";
         
         //-----custom filters-----
+
+        		var text_search = $("#text_search").val().replace("'", "\\'");
+if (text_search != '')
+  self.whereClause += " AND 'businesses' contains ignoring case '" + text_search + "'";
+		
+		
+		
+		var type_column = "'regnum'";
+var searchType = type_column + " IN (-1,";
+if ( $("#cbType1").is(':checked')) searchType += "1,";
+if ( $("#cbType2").is(':checked')) searchType += "2,";
+if ( $("#cbType3").is(':checked')) searchType += "3,";
+if ( $("#cbType4").is(':checked')) searchType += "4,";
+self.whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
+		
+		
+		var type_column = "'catnum'";
+
+if ( $("#rbType1").is(':checked')) self.whereClause += " AND " + type_column + "=1";
+if ( $("#rbType2").is(':checked')) self.whereClause += " AND " + type_column + "=2";
+if ( $("#rbType3").is(':checked')) self.whereClause += " AND " + type_column + "=3";
+if ( $("#rbType4").is(':checked')) self.whereClause += " AND " + type_column + "=4";
+		
+
+        
+        
         //-----end of custom filters-----
 
         self.getgeoCondition(address, function (geoCondition) {
