@@ -185,9 +185,7 @@ if ( $("#rbType1").is(':checked')) self.whereClause += " AND " + type_column + "
 if ( $("#rbType2").is(':checked')) self.whereClause += " AND " + type_column + "=2";
 if ( $("#rbType3").is(':checked')) self.whereClause += " AND " + type_column + "=3";
 if ( $("#rbType4").is(':checked')) self.whereClause += " AND " + type_column + "=4";
-		
 
-        
         
         //-----end of custom filters-----
 
